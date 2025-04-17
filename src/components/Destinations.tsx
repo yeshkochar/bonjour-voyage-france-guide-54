@@ -2,6 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const destinations = [
   {
@@ -54,13 +55,13 @@ export default function Destinations() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {destinations.map((destination) => (
             <Card key={destination.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-              <div className="h-60 overflow-hidden">
+              <AspectRatio ratio={16 / 9} className="bg-muted">
                 <img 
                   src={destination.image} 
-                  alt={destination.name} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  alt={`View of ${destination.name}, France`}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
-              </div>
+              </AspectRatio>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-france-navy mb-2">{destination.name}</h3>
                 <p className="text-gray-600 mb-4">{destination.description}</p>
